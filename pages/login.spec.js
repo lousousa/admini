@@ -1,5 +1,5 @@
 import { shallowMount } from '@vue/test-utils'
-import login from '@/pages/login'
+import login from '@/pages/login.vue'
 
 let wrapper = null
 

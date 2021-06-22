@@ -1,15 +1,14 @@
 <template>
   <div>
-    <form>
-      <div>
-        <input type="text">
-      </div>
-      <div>
-        <input type="password">
-      </div>
-      <div>
-        <button type="submit" />
-      </div>
-    </form>
+    <basic-form />
   </div>
 </template>
+
+<script>
+import BasicForm from '@/components/BasicForm.vue'
+export default {
+  components: {
+    BasicForm
+  }
+}
+</script>
