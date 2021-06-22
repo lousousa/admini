@@ -1,15 +1,15 @@
 <template>
-    <div>
-        <form>
-            <div>
-                <input type="text"/>
-            </div>
-            <div>
-                <input type="password"/>
-            </div>
-            <div>
-                <button type='submit'></button>
-            </div>
-        </form>
-    </div>
+  <div>
+    <form>
+      <div>
+        <input type="text">
+      </div>
+      <div>
+        <input type="password">
+      </div>
+      <div>
+        <button type="submit" />
+      </div>
+    </form>
+  </div>
 </template>
