@@ -3,7 +3,7 @@
     <label :for="name">
       {{ label }}
     </label>
-    <input :id="name" class="field__input" :type="inputType">
+    <input :id="name" class="field__input" :type="nativeType">
   </div>
 </template>
 
@@ -18,7 +18,7 @@ export default {
       type: String,
       required: true
     },
-    inputType: {
+    nativeType: {
       type: String,
       required: true
     }

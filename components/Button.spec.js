@@ -1,11 +1,11 @@
 import { shallowMount } from '@vue/test-utils'
-import Field from '@/components/Field.vue'
+import Button from '@/components/Button.vue'
 
 let wrapper = null
 
-describe('components/Field', () => {
+describe('components/Button', () => {
   it('mounts', () => {
-    wrapper = shallowMount(Field)
+    wrapper = shallowMount(Button)
     expect(wrapper.vm).toBeTruthy()
   })
 })

@@ -1,7 +1,11 @@
 <template>
   <div>
     <div class="max-w-sm">
-      <basic-form :fields="formFields" />
+      <basic-form
+        :fields="formFields"
+        :action="logar"
+        action-label="Acessar"
+      />
     </div>
   </div>
 </template>
@@ -18,15 +22,18 @@ export default {
         {
           name: 'username',
           label: 'Nome de usuário:',
-          inputType: 'text'
+          nativeType: 'text'
         },
         {
           name: 'password',
           label: 'Senha:',
-          inputType: 'password'
+          nativeType: 'password'
         }
       ]
     }
+  },
+  methods: {
+    logar () {}
   }
 }
 </script>

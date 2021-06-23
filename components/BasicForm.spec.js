@@ -10,7 +10,7 @@ beforeEach(() => {
         {
           name: 'name',
           label: 'label',
-          inputType: 'type'
+          nativeType: 'type'
         }
       ]
     }
