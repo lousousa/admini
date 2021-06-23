@@ -3,9 +3,26 @@ import BasicForm from '@/components/BasicForm.vue'
 
 let wrapper = null
 
+beforeEach(() => {
+  wrapper = shallowMount(BasicForm, {
+    propsData: {
+      fields: [
+        {
+          name: 'name',
+          label: 'label',
+          inputType: 'type'
+        }
+      ]
+    }
+  })
+})
+
+afterEach(() => {
+  wrapper.destroy()
+})
+
 describe('components/BasicForm', () => {
   it('mounts', () => {
-    wrapper = shallowMount(BasicForm)
     expect(wrapper.vm).toBeTruthy()
   })
 })
