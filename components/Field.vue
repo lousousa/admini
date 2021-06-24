@@ -21,7 +21,7 @@ export default {
     },
     nativeType: {
       type: String,
-      required: true
+      default: 'text'
     }
   }
 }
