@@ -32,7 +32,7 @@ describe('components/BasicForm', () => {
   it('mounts', () => {
     expect(wrapper.vm).toBeTruthy()
   })
-  it('must to render a properly list of fields', () => {
+  it('must to render a properly length of fields', () => {
     expect(wrapper.findAllComponents({ name: 'Field' }).length).toBe(mockFields.length)
   })
   it('must to show a button only if action prop exists', async () => {
