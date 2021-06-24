@@ -6,6 +6,7 @@
         <p>Digite seu nome de usuário e senha.</p>
       </div>
       <basic-form
+        ref="loginForm"
         :fields="formFields"
         :action="logar"
         action-label="Acessar"

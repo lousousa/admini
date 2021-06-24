@@ -3,7 +3,13 @@
     <label :for="name" class="field__label">
       {{ label }}
     </label>
-    <input :id="name" class="field__input" :type="nativeType">
+    <input
+      :id="name"
+      v-model="input"
+      class="field__input"
+      :type="nativeType"
+      @input="$emit('input', name, input)"
+    >
   </div>
 </template>
 
@@ -22,6 +28,11 @@ export default {
     nativeType: {
       type: String,
       default: 'text'
+    }
+  },
+  data () {
+    return {
+      input: ''
     }
   }
 }

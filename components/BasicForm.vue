@@ -6,6 +6,7 @@
       :name="field.name"
       :label="field.label"
       :native-type="field.nativeType"
+      @input="onInput"
     />
     <div v-if="action" class="basicform__action-wrapper">
       <Button native-type="submit" :label="actionLabel" :is-primary="true" />
@@ -35,11 +36,24 @@ export default {
       default: 'Salvar'
     }
   },
+  data () {
+    return {
+      model: {}
+    }
+  },
+  created () {
+    for (const field of this.fields) {
+      this.model[field.name] = null
+    }
+  },
   methods: {
     onSubmit () {
       if (this.action) {
         this.action()
       }
+    },
+    onInput (name, val) {
+      this.model[name] = val
     }
   }
 }
