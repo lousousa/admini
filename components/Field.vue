@@ -1,6 +1,6 @@
 <template>
   <div class="field__field-wrapper">
-    <label :for="name">
+    <label :for="name" class="field__label">
       {{ label }}
     </label>
     <input :id="name" class="field__input" :type="nativeType">
@@ -28,10 +28,13 @@ export default {
 </script>
 
 <style scoped>
-  .field__field-wrapper {
-    @apply w-full p-2;
-  }
-  .field__input {
-    @apply w-full border border-gray-300 p-2 outline-none;
-  }
+.field__field-wrapper {
+  @apply w-full p-2;
+}
+.field__label {
+  @apply font-medium;
+}
+.field__input {
+  @apply w-full border-b border-gray-300 p-2 outline-none;
+}
 </style>

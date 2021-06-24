@@ -27,7 +27,7 @@ export default {
 </script>
 
 <style scoped>
-  .button__button {
-    @apply bg-gray-300 w-full p-2 outline-none;
-  }
+.button__button {
+  @apply bg-gray-300 w-full p-2 outline-none;
+}
 </style>

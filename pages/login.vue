@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <div class="max-w-sm">
+  <div class="login__container">
+    <div class="login__panel">
       <basic-form
         :fields="formFields"
         :action="logar"
@@ -37,3 +37,12 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.login__container {
+  @apply flex max-w-screen-lg justify-center items-center mx-auto min-h-screen;
+}
+.login__panel {
+  @apply bg-white p-2 w-2/5;
+}
+</style>
