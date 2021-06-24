@@ -12,6 +12,7 @@
 
 <script>
 export default {
+  name: 'Button',
   props: {
     label: {
       type: String,
