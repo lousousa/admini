@@ -2,6 +2,7 @@
   <div>
     <button
       class="button__button"
+      :class="{ 'is-primary': isPrimary }"
       :type="nativeType"
       @click="$emit('click')"
     >
@@ -21,6 +22,10 @@ export default {
     nativeType: {
       type: String,
       default: 'button'
+    },
+    isPrimary: {
+      type: Boolean,
+      default: false
     }
   }
 }
@@ -28,6 +33,9 @@ export default {
 
 <style scoped>
 .button__button {
-  @apply bg-gray-300 w-full p-2 outline-none;
+  @apply bg-gray-300 w-full p-2 outline-none rounded-full;
+}
+.button__button.is-primary {
+  @apply bg-blue-500 text-white;
 }
 </style>

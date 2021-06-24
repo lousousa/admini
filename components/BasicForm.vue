@@ -8,7 +8,7 @@
       :native-type="field.nativeType"
     />
     <div v-if="action" class="basicform__action-wrapper">
-      <Button native-type="submit" :label="actionLabel" />
+      <Button native-type="submit" :label="actionLabel" :is-primary="true" />
     </div>
   </form>
 </template>

@@ -10,6 +10,6 @@
   font-family: 'Muli', sans-serif;
 }
 .login-page {
-  @apply bg-blue-600;
+  @apply bg-blue-400;
 }
 </style>
