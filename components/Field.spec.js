@@ -5,7 +5,13 @@ let wrapper = null
 
 describe('components/Field', () => {
   it('mounts', () => {
-    wrapper = shallowMount(Field)
+    wrapper = shallowMount(Field, {
+      propsData: {
+        name: 'username',
+        label: 'Nome de usuário:',
+        nativeType: 'text'
+      }
+    })
     expect(wrapper.vm).toBeTruthy()
   })
 })

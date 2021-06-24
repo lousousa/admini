@@ -3,16 +3,23 @@ import BasicForm from '@/components/BasicForm.vue'
 
 let wrapper = null
 
+const mockFields = [
+  {
+    name: 'username',
+    label: 'Nome:',
+    nativeType: 'text'
+  },
+  {
+    name: 'password',
+    label: 'Senha:',
+    nativeType: 'password'
+  }
+]
+
 beforeEach(() => {
   wrapper = shallowMount(BasicForm, {
     propsData: {
-      fields: [
-        {
-          name: 'name',
-          label: 'label',
-          nativeType: 'type'
-        }
-      ]
+      fields: mockFields
     }
   })
 })
@@ -24,5 +31,8 @@ afterEach(() => {
 describe('components/BasicForm', () => {
   it('mounts', () => {
     expect(wrapper.vm).toBeTruthy()
+  })
+  it('must to render a properly list of fields', () => {
+    expect(wrapper.findAllComponents({ name: 'Field' }).length).toBe(mockFields.length)
   })
 })

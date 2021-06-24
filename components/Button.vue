@@ -15,7 +15,7 @@ export default {
   props: {
     label: {
       type: String,
-      required: true
+      default: 'Enviar'
     },
     nativeType: {
       type: String,

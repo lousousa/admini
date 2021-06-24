@@ -9,6 +9,7 @@
 
 <script>
 export default {
+  name: 'Field',
   props: {
     name: {
       type: String,
