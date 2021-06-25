@@ -28,6 +28,7 @@
 import Field from '@/components/Field.vue'
 import Button from '@/components/Button.vue'
 export default {
+  name: 'BasicForm',
   components: {
     Field,
     Button
