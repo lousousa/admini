@@ -9,7 +9,7 @@
         @input="onInput"
       />
       <div v-if="submitted && field.warnings">
-        <div v-for="rule, idx in Object.keys(field.warnings)" :key="idx">
+        <div v-for="rule in Object.keys(field.warnings)" :key="rule">
           <p
             v-if="!$v.model[field.name][rule]"
             class="basicform__text-warning"
