@@ -7,7 +7,7 @@
       </div>
       <basic-form
         ref="loginForm"
-        :fields="formFields"
+        :fields="form.fields"
         :action="logar"
         action-label="Acessar"
       />
@@ -17,24 +17,33 @@
 
 <script>
 import BasicForm from '@/components/BasicForm.vue'
+import { required } from 'vuelidate/lib/validators'
 export default {
   components: {
     BasicForm
   },
   data () {
     return {
-      formFields: [
-        {
-          name: 'username',
-          label: 'Nome de usuário:',
-          nativeType: 'text'
-        },
-        {
-          name: 'password',
-          label: 'Senha:',
-          nativeType: 'password'
-        }
-      ]
+      form: {
+        fields: [
+          {
+            name: 'username',
+            label: 'Nome de usuário:',
+            nativeType: 'text',
+            validation: {
+              required
+            }
+          },
+          {
+            name: 'password',
+            label: 'Senha:',
+            nativeType: 'password',
+            validation: {
+              required
+            }
+          }
+        ]
+      }
     }
   },
   methods: {

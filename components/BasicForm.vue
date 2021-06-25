@@ -37,23 +37,36 @@ export default {
     }
   },
   data () {
+    const model = {}
+    for (const field of this.fields) {
+      model[field.name] = null
+    }
     return {
-      model: {}
+      model
     }
   },
-  created () {
+  validations () {
+    const model = {}
     for (const field of this.fields) {
-      this.model[field.name] = null
+      if (field.validation) {
+        model[field.name] = field.validation
+      }
+    }
+    return {
+      model
     }
   },
   methods: {
     onSubmit () {
       if (this.action) {
-        this.action()
+        this.$v.$touch()
+        if (!this.$v.$invalid) {
+          this.action()
+        }
       }
     },
-    onInput (name, val) {
-      this.model[name] = val
+    onInput (name, value) {
+      this.model[name] = value
     }
   }
 }
