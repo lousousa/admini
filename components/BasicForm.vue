@@ -1,13 +1,23 @@
 <template>
   <form class="basicform__form" @submit.prevent="onSubmit">
-    <field
-      v-for="field, idx in fields"
-      :key="idx"
-      :name="field.name"
-      :label="field.label"
-      :native-type="field.nativeType"
-      @input="onInput"
-    />
+    <div v-for="field, idx in fields" :key="idx" class="basicform_field-wrapper">
+      <field
+        :class="{ error: submitted && $v.model[field.name] && $v.model[field.name].$error }"
+        :name="field.name"
+        :label="field.label"
+        :native-type="field.nativeType"
+        @input="onInput"
+      />
+      <div v-if="submitted && field.warnings">
+        <div v-for="rule, idx in Object.keys(field.warnings)" :key="idx">
+          <p
+            v-if="!$v.model[field.name][rule]"
+            class="basicform__text-warning"
+            v-html="field.warnings[rule]"
+          />
+        </div>
+      </div>
+    </div>
     <div v-if="action" class="basicform__action-wrapper">
       <Button native-type="submit" :label="actionLabel" :is-primary="true" />
     </div>
@@ -42,7 +52,8 @@ export default {
       model[field.name] = null
     }
     return {
-      model
+      model,
+      submitted: false
     }
   },
   validations () {
@@ -59,6 +70,7 @@ export default {
   methods: {
     onSubmit () {
       if (this.action) {
+        this.submitted = true
         this.$v.$touch()
         if (!this.$v.$invalid) {
           this.action()
@@ -78,5 +90,11 @@ export default {
 }
 .basicform__action-wrapper {
   @apply w-full p-2;
+}
+.basicform__text-warning {
+  @apply text-red-400 text-right text-sm;
+}
+.basicform_field-wrapper {
+  @apply w-full;
 }
 </style>

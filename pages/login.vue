@@ -32,6 +32,9 @@ export default {
             nativeType: 'text',
             validation: {
               required
+            },
+            warnings: {
+              required: 'Digite o campo <b>nome de usuário</b>'
             }
           },
           {
@@ -40,6 +43,9 @@ export default {
             nativeType: 'password',
             validation: {
               required
+            },
+            warnings: {
+              required: 'Digite o campo <b>senha</b>'
             }
           }
         ]

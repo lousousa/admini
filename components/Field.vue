@@ -48,4 +48,10 @@ export default {
 .field__input {
   @apply w-full border-b border-gray-300 p-2 outline-none;
 }
+.field__field-wrapper.error .field__input {
+  @apply border-red-400;
+}
+.field__field-wrapper.error .field__label {
+  @apply text-red-500;
+}
 </style>
