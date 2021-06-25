@@ -7,7 +7,7 @@
       </div>
       <basic-form
         ref="loginForm"
-        :fields="form.fields"
+        :fields="formFields"
         :action="logar"
         action-label="Acessar"
       />
@@ -24,32 +24,30 @@ export default {
   },
   data () {
     return {
-      form: {
-        fields: [
-          {
-            name: 'username',
-            label: 'Nome de usuário:',
-            nativeType: 'text',
-            validation: {
-              required
-            },
-            warnings: {
-              required: 'Digite o campo <b>nome de usuário</b>'
-            }
+      formFields: [
+        {
+          name: 'username',
+          label: 'Nome de usuário:',
+          nativeType: 'text',
+          validation: {
+            required
           },
-          {
-            name: 'password',
-            label: 'Senha:',
-            nativeType: 'password',
-            validation: {
-              required
-            },
-            warnings: {
-              required: 'Digite o campo <b>senha</b>'
-            }
+          warnings: {
+            required: 'Digite o <b>nome de usuário</b>'
           }
-        ]
-      }
+        },
+        {
+          name: 'password',
+          label: 'Senha:',
+          nativeType: 'password',
+          validation: {
+            required
+          },
+          warnings: {
+            required: 'Digite o <b>senha</b>'
+          }
+        }
+      ]
     }
   },
   methods: {

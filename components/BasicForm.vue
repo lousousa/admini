@@ -1,6 +1,6 @@
 <template>
   <form class="basicform__form" @submit.prevent="onSubmit">
-    <div v-for="field, idx in fields" :key="idx" class="basicform_field-wrapper">
+    <div v-for="field, idx in fields" :key="idx" class="basicform__field-wrapper">
       <field
         :class="{ error: submitted && $v.model[field.name] && $v.model[field.name].$error }"
         :name="field.name"
@@ -94,7 +94,7 @@ export default {
 .basicform__text-warning {
   @apply text-red-400 text-right text-sm;
 }
-.basicform_field-wrapper {
+.basicform__field-wrapper {
   @apply w-full;
 }
 </style>
