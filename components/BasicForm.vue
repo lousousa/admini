@@ -10,13 +10,11 @@
       />
       <div v-if="submitted && field.warnings">
         <div v-for="rule in Object.keys(field.warnings)" :key="rule">
-          <!-- eslint-disable vue/no-v-html -->
           <p
             v-if="!$v.model[field.name][rule]"
             class="basicform__text-warning"
             v-html="field.warnings[rule]"
           />
-          <!--eslint-enable-->
         </div>
       </div>
     </div>
