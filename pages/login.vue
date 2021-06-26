@@ -58,7 +58,7 @@ export default {
 
 <style scoped>
 .login__container {
-  @apply flex max-w-screen-lg justify-center items-center mx-auto min-h-screen;
+  @apply flex max-w-screen-lg justify-center items-center mx-auto min-h-screen px-8;
 }
 .login__text-welcome {
   @apply text-center my-8;
@@ -70,6 +70,6 @@ export default {
   @apply text-gray-500;
 }
 .login__panel {
-  @apply bg-white p-2 w-1/3 rounded-lg;
+  @apply bg-white p-2 w-full sm:w-1/3 rounded-lg;
 }
 </style>
