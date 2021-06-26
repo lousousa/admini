@@ -47,11 +47,6 @@ describe('components/BasicForm', () => {
   it('must to render a properly length of fields', () => {
     expect(wrapper.findAllComponents({ name: 'Field' }).length).toBe(mockFields.length)
   })
-  it('must to show a button only if action prop exists', async () => {
-    expect(wrapper.findComponent({ name: 'Button' }).exists()).toBeFalsy()
-    await wrapper.setProps({ action: () => {} })
-    expect(wrapper.findComponent({ name: 'Button' }).exists()).toBeTruthy()
-  })
   it('throws form invalid if rule break', async () => {
     await wrapper.setProps({ action: () => {} })
     await wrapper.vm.onSubmit()

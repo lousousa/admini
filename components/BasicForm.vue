@@ -18,7 +18,7 @@
         </div>
       </div>
     </div>
-    <div v-if="action" class="basicform__action-wrapper">
+    <div class="basicform__action-wrapper">
       <Button native-type="submit" :label="actionLabel" :is-primary="true" />
     </div>
   </form>
@@ -37,10 +37,6 @@ export default {
     fields: {
       type: Array,
       required: true
-    },
-    action: {
-      type: Function,
-      default: undefined
     },
     actionLabel: {
       type: String,
@@ -70,12 +66,10 @@ export default {
   },
   methods: {
     onSubmit () {
-      if (this.action) {
-        this.submitted = true
-        this.$v.$touch()
-        if (!this.$v.$invalid) {
-          this.action()
-        }
+      this.submitted = true
+      this.$v.$touch()
+      if (!this.$v.$invalid) {
+        this.$emit('submit', this.model)
       }
     },
     onInput (name, value) {

@@ -6,10 +6,9 @@
         <p>Digite seu nome de usuário e senha.</p>
       </div>
       <basic-form
-        ref="loginForm"
         :fields="formFields"
-        :action="logar"
         action-label="Acessar"
+        @submit="logar"
       />
     </div>
   </div>
@@ -51,7 +50,7 @@ export default {
     }
   },
   methods: {
-    logar () {}
+    logar (model) {}
   }
 }
 </script>
