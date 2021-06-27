@@ -50,7 +50,10 @@ export default {
     }
   },
   methods: {
-    logar (model) {}
+    logar (model) {
+      this.$store.commit('user/login', model)
+      this.$router.push({ name: 'index' })
+    }
   }
 }
 </script>

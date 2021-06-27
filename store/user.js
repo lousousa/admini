@@ -12,4 +12,11 @@ export const getters = {
 
 export const actions = {}
 
-export const mutations = {}
+export const mutations = {
+  login: (state, user) => {
+    if (user.username === 'admin' && user.password === 'admin') {
+      state.auth.user = user
+      state.auth.loggedIn = true
+    }
+  }
+}
