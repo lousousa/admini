@@ -17,6 +17,7 @@
 <script>
 import BasicForm from '@/components/BasicForm.vue'
 import { required } from 'vuelidate/lib/validators'
+import { mapGetters } from 'vuex'
 export default {
   components: {
     BasicForm
@@ -49,10 +50,16 @@ export default {
       ]
     }
   },
+  computed: {
+    ...mapGetters('user', ['userIsAuthenticated'])
+  },
   methods: {
     logar (model) {
       this.$store.commit('user/login', model)
-      this.$router.push({ name: 'index' })
+      if (this.userIsAuthenticated) {
+        return this.$router.push({ name: 'index' })
+      }
+      return alert('Login inválido')
     }
   }
 }
