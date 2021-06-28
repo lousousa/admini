@@ -7,6 +7,7 @@
       </div>
       <basic-form
         :fields="formFields"
+        :form-waiting="formWaiting"
         action-label="Acessar"
         @submit="logar"
       />
@@ -24,6 +25,7 @@ export default {
   },
   data () {
     return {
+      formWaiting: false,
       formFields: [
         {
           name: 'username',
@@ -55,11 +57,16 @@ export default {
   },
   methods: {
     logar (model) {
-      this.$store.commit('user/login', model)
-      if (this.userIsAuthenticated) {
-        return this.$router.push({ name: 'index' })
-      }
-      return this.$toast.open({ message: 'Login inválido', type: 'error' })
+      this.formWaiting = true
+      window.setTimeout(() => {
+        this.formWaiting = false
+        this.$store.commit('user/login', model)
+        if (this.userIsAuthenticated) {
+          this.$toast.open({ message: 'Bem vindo(a)!', type: 'success' })
+          return this.$router.push({ name: 'index' })
+        }
+        return this.$toast.open({ message: 'Login inválido', type: 'error' })
+      }, 1000)
     }
   }
 }

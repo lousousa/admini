@@ -19,7 +19,12 @@
       </div>
     </div>
     <div class="basicform__action-wrapper">
-      <Button native-type="submit" :label="actionLabel" :is-primary="true" />
+      <Button
+        native-type="submit"
+        :label="actionLabel"
+        :is-primary="true"
+        :is-waiting="formWaiting"
+      />
     </div>
   </form>
 </template>
@@ -41,6 +46,10 @@ export default {
     actionLabel: {
       type: String,
       default: 'Salvar'
+    },
+    formWaiting: {
+      type: Boolean,
+      default: false
     }
   },
   data () {

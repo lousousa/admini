@@ -6,7 +6,12 @@
       :type="nativeType"
       @click="$emit('click')"
     >
-      {{ label }}
+      <client-only v-if="isWaiting">
+        <ring-loader color="white" :size="23" />
+      </client-only>
+      <span v-else>
+        {{ label }}
+      </span>
     </button>
   </div>
 </template>
@@ -26,6 +31,10 @@ export default {
     isPrimary: {
       type: Boolean,
       default: false
+    },
+    isWaiting: {
+      type: Boolean,
+      default: false
     }
   }
 }
@@ -34,6 +43,10 @@ export default {
 <style scoped>
 .button__button {
   @apply bg-gray-300 w-full p-2 outline-none rounded-full;
+  font-size: 0;
+}
+.button__button span {
+  @apply text-base;
 }
 .button__button.is-primary {
   @apply bg-blue-500 text-white;
