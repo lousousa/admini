@@ -59,7 +59,7 @@ export default {
       if (this.userIsAuthenticated) {
         return this.$router.push({ name: 'index' })
       }
-      return alert('Login inválido')
+      return this.$toast.open({ message: 'Login inválido', type: 'error' })
     }
   }
 }

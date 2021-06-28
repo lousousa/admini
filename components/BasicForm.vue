@@ -69,6 +69,7 @@ export default {
       this.submitted = true
       this.$v.$touch()
       if (!this.$v.$invalid) {
+        this.submitted = false
         this.$emit('submit', this.model)
       }
     },
