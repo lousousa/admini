@@ -7,7 +7,7 @@
       @click="$emit('click')"
     >
       <client-only v-if="isWaiting">
-        <ring-loader color="white" :size="23" />
+        <ring-loader color="white" :size="24" />
       </client-only>
       <span v-else>
         {{ label }}
