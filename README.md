@@ -1,4 +1,4 @@
-# theme-admin
+# admini
 
 ## Build Setup
 
